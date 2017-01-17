@@ -52,4 +52,23 @@ final class Block: Model {
             BlockKeys.links: links
         ])
     }
+    
+    static func prepare(_ database: Database) throws {
+        try database.create(BlockKeys.blocks.rawValue) { blocks in
+            blocks.id()
+            
+            blocks.bool(BlockKeys.isPublished.rawValue)
+            blocks.string(BlockKeys.title.rawValue)
+            blocks.string(BlockKeys.subtitle.rawValue)
+            blocks.string(BlockKeys.description.rawValue)
+            blocks.bool(BlockKeys.isReleased.rawValue)
+            blocks.data(BlockKeys.image.rawValue)
+            blocks.string(BlockKeys.url.rawValue)
+            blocks.string(BlockKeys.links.rawValue)
+        }
+    }
+    
+    static func revert(_ database: Database) throws {
+        try database.delete(BlockKeys.blocks.rawValue)
+    }
 }

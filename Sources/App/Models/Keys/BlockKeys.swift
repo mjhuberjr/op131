@@ -1,6 +1,7 @@
 import Foundation
 
 enum BlockKeys: String {
+    case blocks
     case id
     case title
     case subtitle
