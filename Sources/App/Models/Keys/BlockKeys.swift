@@ -5,7 +5,7 @@ enum BlockKeys: String {
     case title
     case subtitle
     case description
-    case released
+    case isReleased
     case image
     case url
     case links
