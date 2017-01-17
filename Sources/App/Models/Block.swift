@@ -65,6 +65,8 @@ final class Block: Model {
             blocks.data(BlockKeys.image.rawValue)
             blocks.string(BlockKeys.url.rawValue)
             blocks.string(BlockKeys.links.rawValue)
+            
+            // TODO: Implement Parent here since this will need to belong to a Section...
         }
     }
     
