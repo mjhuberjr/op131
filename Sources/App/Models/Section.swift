@@ -45,4 +45,8 @@ final class Section: Model {
             // TODO Implement children for Jumbo and Blocks, may need to make Parents on Block Model...
         }
     }
+    
+    static func revert(_ database: Database) throws {
+        try database.delete(SectionKeys.sections.rawValue)
+    }
 }
