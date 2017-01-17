@@ -36,4 +36,13 @@ final class Section: Model {
             SectionKeys.blocks.rawValue: blocks
         ])
     }
+    
+    static func prepare(_ database: Database) throws {
+        try database.create(SectionKeys.sections.rawValue) { sections in
+            sections.id()
+            sections.bool(SectionKeys.isPublished.rawValue)
+            sections.string(SectionKeys.title.rawValue)
+            // TODO Implement children for Jumbo and Blocks, may need to make Parents on Block Model...
+        }
+    }
 }
