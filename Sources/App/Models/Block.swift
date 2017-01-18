@@ -11,17 +11,18 @@ final class Block: Model {
     var description: String
     var isReleased: Bool
     var imagePath: String
-    var url: String?
-    var links: [String]?
+    var url: String
+    var links: String
     
-    init(isPublished: Bool, title: String, subtitle: String, description: String, isReleased: Bool, image: Data, url: String? = nil, links: [String]? = nil) {
+    init(isPublished: Bool, title: String, subtitle: String, description: String, isReleased: Bool, imagePath: String, url: String, links: String) {
         self.id = nil
         
+        self.isPublished = isPublished
         self.title = title
         self.subtitle = subtitle
         self.description = description
         self.isReleased = isReleased
-        self.image = image
+        self.imagePath = imagePath
         self.url = url
         self.links = links
     }
@@ -34,7 +35,7 @@ final class Block: Model {
         subtitle = try node.extract(BlockKeys.subtitle.rawValue)
         description = try node.extract(BlockKeys.description.rawValue)
         isReleased = try node.extract(BlockKeys.isReleased.rawValue)
-        image = try node.extract(BlockKeys.image.rawValue)
+        imagePath = try node.extract(BlockKeys.imagePath.rawValue)
         url = try node.extract(BlockKeys.url.rawValue)
         links = try node.extract(BlockKeys.links.rawValue)
     }
@@ -42,14 +43,14 @@ final class Block: Model {
     func makeNode(context: Context) throws -> Node {
         return try Node(node: [
             BlockKeys.id.rawValue: id,
-            BlockKeys.isPublished: isPublished,
-            BlockKeys.title: title,
-            BlockKeys.subtitle: subtitle,
-            BlockKeys.description: description,
+            BlockKeys.isPublished.rawValue: isPublished,
+            BlockKeys.title.rawValue: title,
+            BlockKeys.subtitle.rawValue: subtitle,
+            BlockKeys.description.rawValue: description,
             BlockKeys.isReleased.rawValue: isReleased,
-            BlockKeys.image.rawValue: image,
-            BlockKeys.url: url,
-            BlockKeys.links: links
+            BlockKeys.imagePath.rawValue: imagePath,
+            BlockKeys.url.rawValue: url,
+            BlockKeys.links.rawValue: links
         ])
     }
     
@@ -62,9 +63,9 @@ final class Block: Model {
             blocks.string(BlockKeys.subtitle.rawValue)
             blocks.string(BlockKeys.description.rawValue)
             blocks.bool(BlockKeys.isReleased.rawValue)
-            blocks.data(BlockKeys.image.rawValue)
+            blocks.string(BlockKeys.imagePath.rawValue)
             blocks.string(BlockKeys.url.rawValue)
-            blocks.string(BlockKeys.links.rawValue)
+            blocks.string(BlockKeys.links.rawValue) // Probably will have children links unless there's an easy way to store an array in the Database
             
             // TODO: Implement Parent here since this will need to belong to a Section...
         }
