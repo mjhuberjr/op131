@@ -10,7 +10,7 @@ final class Block: Model {
     var subtitle: String
     var description: String
     var isReleased: Bool
-    var image: Data
+    var imagePath: String
     var url: String?
     var links: [String]?
     
