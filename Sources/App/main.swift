@@ -16,10 +16,12 @@ drop.get("testdb") { _ in
   }
 }
 
+drop.get("/") { request in
+    return try Section.all().makeJSON()
+}
+
 drop.get(Section.self) { request, section in
-    return try JSON(node: [
-        "section": section
-    ])
+    return try section.children(nil, Block.self).all().makeJSON()
 }
 
 drop.run()
