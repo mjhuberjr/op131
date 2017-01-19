@@ -3,6 +3,9 @@ import VaporMySQL
 
 let drop = Droplet()
 try drop.addProvider(VaporMySQL.Provider)
+drop.preparations += Section.self
+drop.preparations += Block.self
+drop.preparations += Link.self
 
 drop.get("testdb") { _ in
   if let db = drop.database?.driver as? MySQLDriver {
@@ -13,7 +16,7 @@ drop.get("testdb") { _ in
   }
 }
 
-drop.get(String.self) { request, section in
+drop.get(Section.self) { request, section in
     return try JSON(node: [
         "section": section
     ])
