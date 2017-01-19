@@ -65,7 +65,7 @@ extension Block: Model {
             blocks.bool(BlockKeys.isReleased.rawValue)
             blocks.string(BlockKeys.imagePath.rawValue)
             blocks.string(BlockKeys.url.rawValue)
-            bloacks.parent(Section.self, optional: false)
+            blocks.parent(Section.self, optional: false)
         }
     }
     
