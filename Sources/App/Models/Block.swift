@@ -12,9 +12,8 @@ final class Block: Publishable {
     var isReleased: Bool
     var imagePath: String
     var url: String
-    var links: String
     
-    init(isPublished: Bool, title: String, subtitle: String, description: String, isReleased: Bool, imagePath: String, url: String, links: String) {
+    init(isPublished: Bool, title: String, subtitle: String, description: String, isReleased: Bool, imagePath: String, url: String) {
         self.id = nil
         
         self.isPublished = isPublished
@@ -24,7 +23,6 @@ final class Block: Publishable {
         self.isReleased = isReleased
         self.imagePath = imagePath
         self.url = url
-        self.links = links
     }
     
     init(node: Node, in context: Context) throws {
@@ -37,7 +35,6 @@ final class Block: Publishable {
         isReleased = try node.extract(BlockKeys.isReleased.rawValue)
         imagePath = try node.extract(BlockKeys.imagePath.rawValue)
         url = try node.extract(BlockKeys.url.rawValue)
-        links = try node.extract(BlockKeys.links.rawValue)
     }
 }
 
@@ -53,8 +50,7 @@ extension Block: Model {
             BlockKeys.description.rawValue: description,
             BlockKeys.isReleased.rawValue: isReleased,
             BlockKeys.imagePath.rawValue: imagePath,
-            BlockKeys.url.rawValue: url,
-            BlockKeys.links.rawValue: links
+            BlockKeys.url.rawValue: url
             ])
     }
     
@@ -69,9 +65,7 @@ extension Block: Model {
             blocks.bool(BlockKeys.isReleased.rawValue)
             blocks.string(BlockKeys.imagePath.rawValue)
             blocks.string(BlockKeys.url.rawValue)
-            blocks.string(BlockKeys.links.rawValue) // Probably will have children links unless there's an easy way to store an array in the Database
-            
-            // TODO: Implement Parent here since this will need to belong to a Section...
+            bloacks.parent(Section.self, optional: false)
         }
     }
     
