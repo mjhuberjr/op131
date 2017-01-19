@@ -13,4 +13,10 @@ drop.get("testdb") { _ in
   }
 }
 
+drop.get(String.self) { request, section in
+    return try JSON(node: [
+        "section": section
+    ])
+}
+
 drop.run()
