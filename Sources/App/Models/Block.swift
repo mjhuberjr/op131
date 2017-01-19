@@ -1,7 +1,7 @@
 import Foundation
 import Vapor
 
-final class Block: Model {
+final class Block: Publishable {
     var id: Node?
     var exists: Bool = false
     
@@ -39,7 +39,11 @@ final class Block: Model {
         url = try node.extract(BlockKeys.url.rawValue)
         links = try node.extract(BlockKeys.links.rawValue)
     }
-    
+}
+
+// MARK: - Model Implementation
+
+extension Block: Model {
     func makeNode(context: Context) throws -> Node {
         return try Node(node: [
             BlockKeys.id.rawValue: id,
@@ -51,7 +55,7 @@ final class Block: Model {
             BlockKeys.imagePath.rawValue: imagePath,
             BlockKeys.url.rawValue: url,
             BlockKeys.links.rawValue: links
-        ])
+            ])
     }
     
     static func prepare(_ database: Database) throws {

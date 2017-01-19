@@ -1,7 +1,7 @@
 import Vapor
 import HTTP
 
-final class Section: Model {
+final class Section: Publishable {
     var id: Node?
     var exists: Bool = false
     
@@ -20,13 +20,17 @@ final class Section: Model {
         isPublished = try node.extract(SectionKeys.isPublished.rawValue)
         title = try node.extract(SectionKeys.title.rawValue)
     }
-    
+}
+
+// MARK: - Model Implementation
+
+extension Section: Model {
     func makeNode(context: Context) throws -> Node {
         return try Node(node:[
             SectionKeys.id.rawValue: id,
             SectionKeys.isPublished.rawValue: isPublished,
             SectionKeys.title.rawValue: title
-        ])
+            ])
     }
     
     static func prepare(_ database: Database) throws {
