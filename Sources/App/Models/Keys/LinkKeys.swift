@@ -6,4 +6,5 @@ enum LinkKeys: String {
 	case title
 	case url
 	case isPublished
+    case sectionID
 }

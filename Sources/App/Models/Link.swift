@@ -9,10 +9,13 @@ final class Link: Publishable {
     var title: String
     var url: String
     
-    init(isPublished: Bool, title: String, url: String) {
+    var sectionID: Node?
+    
+    init(isPublished: Bool, title: String, url: String, sectionID: Node? = nil) {
         self.isPublished = isPublished
         self.title = title
         self.url = url
+        self.sectionID = sectionID
     }
     
     init(node: Node, in context: Context) throws {
@@ -21,6 +24,7 @@ final class Link: Publishable {
         isPublished = try node.extract(LinkKeys.isPublished.rawValue)
         title = try node.extract(LinkKeys.title.rawValue)
         url = try node.extract(LinkKeys.url.rawValue)
+        sectionID = try node.extract(LinkKeys.sectionID.rawValue)
     }
 }
 
@@ -30,7 +34,8 @@ extension Link: Model {
             LinkKeys.id.rawValue: id,
             LinkKeys.isPublished.rawValue: isPublished,
             LinkKeys.title.rawValue: title,
-            LinkKeys.url.rawValue: url
+            LinkKeys.url.rawValue: url,
+            LinkKeys.sectionID.rawValue: sectionID
         ])
     }
     
@@ -41,8 +46,7 @@ extension Link: Model {
             links.bool(LinkKeys.isPublished.rawValue)
             links.string(LinkKeys.title.rawValue)
             links.string(LinkKeys.url.rawValue)
-            
-            // TODO: Implement parent for Block here
+            links.parent(Block.self, optional: false)
         }
     }
     
