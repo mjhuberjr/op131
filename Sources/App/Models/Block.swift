@@ -13,7 +13,9 @@ final class Block: Publishable {
     var imagePath: String
     var url: String
     
-    init(isPublished: Bool, title: String, subtitle: String, description: String, isReleased: Bool, imagePath: String, url: String) {
+    var sectionID: Node?
+    
+    init(isPublished: Bool, title: String, subtitle: String, description: String, isReleased: Bool, imagePath: String, url: String, sectionID: Node? = nil) {
         self.id = nil
         
         self.isPublished = isPublished
@@ -23,6 +25,7 @@ final class Block: Publishable {
         self.isReleased = isReleased
         self.imagePath = imagePath
         self.url = url
+        self.sectionID = sectionID
     }
     
     init(node: Node, in context: Context) throws {
@@ -35,6 +38,7 @@ final class Block: Publishable {
         isReleased = try node.extract(BlockKeys.isReleased.rawValue)
         imagePath = try node.extract(BlockKeys.imagePath.rawValue)
         url = try node.extract(BlockKeys.url.rawValue)
+        sectionID = try node.extract(BlockKeys.sectionID.rawValue)
     }
 }
 
@@ -50,7 +54,8 @@ extension Block: Model {
             BlockKeys.description.rawValue: description,
             BlockKeys.isReleased.rawValue: isReleased,
             BlockKeys.imagePath.rawValue: imagePath,
-            BlockKeys.url.rawValue: url
+            BlockKeys.url.rawValue: url,
+            BlockKeys.sectionID.rawValue: sectionID
             ])
     }
     

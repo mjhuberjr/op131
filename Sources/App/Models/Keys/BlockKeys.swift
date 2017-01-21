@@ -10,4 +10,5 @@ enum BlockKeys: String {
     case imagePath
     case url
     case isPublished
+    case sectionID
 }
