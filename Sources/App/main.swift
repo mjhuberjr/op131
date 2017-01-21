@@ -18,7 +18,9 @@ drop.get("testdb") { _ in
 
 drop.get(String.self) { request, sectionString in
     guard let section = try Section.query().filter("title", sectionString).all().first else { throw Abort.notFound }
-    return try section.children(nil, Block.self).all().makeJSON()
+    guard let sectionID = section.id, let block = try Block.find(sectionID) else { throw Abort.notFound }
+    
+    return try block.children(nil, Link.self).all().makeJSON()  //section.children(nil, Block.self).all().makeJSON()
 }
 
 //drop.get(Section.self) { request, section in
