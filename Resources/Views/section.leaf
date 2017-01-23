@@ -1,0 +1,13 @@
+#extend("master")
+#export("section") {
+#loop(blocks, "block") {
+<h1> #(block.title) </h1>
+<h2> #(block.subtitle) </h2>
+<h3> #(block.description) </h3>
+<ul>
+#loop(links, "link") {
+<li> #(link.title) </li>
+}
+</ul>
+}
+}
