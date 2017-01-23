@@ -2,6 +2,8 @@ import Vapor
 import VaporMySQL
 
 let drop = Droplet()
+(drop.view as? LeafRenderer)?.stem.cache = nil
+
 try drop.addProvider(VaporMySQL.Provider)
 drop.preparations += Section.self
 drop.preparations += Block.self
