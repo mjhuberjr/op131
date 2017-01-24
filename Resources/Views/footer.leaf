@@ -1,8 +1,5 @@
-#extend("master")
-#export("footer"){
 <footer>
     <div class="row seperator"> <hr> </div>
-    <div class="row"> <center> <h5> powered by <a href="swift.org"> Swift </a> using <a href="qutheory.io"> Vapor </a> </h5> </center> </div>
-    <div class="row"> <center> <h6> copyright &#169 2017 operation thirteenOne, LLC </h6> </center> </div>
+    <div class="row"> <center> <h5> powered by <a href="http://swift.org"> Swift </a> using <a href="http://qutheory.io"> Vapor </a> </h5> </center> </div>
+    <div class="row"> <center> <h6> copyright #raw() { &#169 } 2017 operation thirteenOne, LLC </h6> </center> </div>
 </footer>
-}

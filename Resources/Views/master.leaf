@@ -8,5 +8,5 @@
 <body>
     #import("section")
 </body>
-#import("footer")
+    #embed("footer")
 </html>
