@@ -6,6 +6,7 @@ final class Block: Publishable {
     var exists: Bool = false
     
     var isPublished: Bool
+    var isHeader: Bool
     var title: String
     var subtitle: String
     var description: String
@@ -15,10 +16,11 @@ final class Block: Publishable {
     
     var sectionID: Node?
     
-    init(isPublished: Bool, title: String, subtitle: String, description: String, isReleased: Bool, imagePath: String, url: String, sectionID: Node? = nil) {
+    init(isPublished: Bool, isHeader: Bool, title: String, subtitle: String, description: String, isReleased: Bool, imagePath: String, url: String, sectionID: Node? = nil) {
         self.id = nil
         
         self.isPublished = isPublished
+        self.isHeader = isHeader
         self.title = title
         self.subtitle = subtitle
         self.description = description
@@ -32,6 +34,7 @@ final class Block: Publishable {
         id = try node.extract(BlockKeys.id.rawValue)
         
         isPublished = try node.extract(BlockKeys.isPublished.rawValue)
+        isHeader = try node.extract(BlockKeys.isHeader.rawValue)
         title = try node.extract(BlockKeys.title.rawValue)
         subtitle = try node.extract(BlockKeys.subtitle.rawValue)
         description = try node.extract(BlockKeys.description.rawValue)
@@ -49,6 +52,7 @@ extension Block: Model {
         return try Node(node: [
             BlockKeys.id.rawValue: id,
             BlockKeys.isPublished.rawValue: isPublished,
+            BlockKeys.isHeader.rawValue: isHeader,
             BlockKeys.title.rawValue: title,
             BlockKeys.subtitle.rawValue: subtitle,
             BlockKeys.description.rawValue: description,
@@ -64,6 +68,7 @@ extension Block: Model {
             blocks.id()
             
             blocks.bool(BlockKeys.isPublished.rawValue)
+            blocks.bool(BlockKeys.isHeader.rawValue)
             blocks.string(BlockKeys.title.rawValue)
             blocks.string(BlockKeys.subtitle.rawValue)
             blocks.string(BlockKeys.description.rawValue)
