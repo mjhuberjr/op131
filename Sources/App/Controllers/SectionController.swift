@@ -18,11 +18,11 @@ final class SectionController {
         return try drop.view.make("section", parameters)
     }
     
-    func paramatersFrom(section: Section) throws -> [Node] {
+    func paramatersFrom(section: Section) throws -> [JSON] {
         let blocks = try section.children(nil, Block.self).all()
-        let blocksWithLinks = try blocks.flatMap { block -> Node in
+        let blocksWithLinks = try blocks.flatMap { block -> JSON in
             let links = try block.children(nil, Link.self).all()
-            return try Node(node: [
+            return try JSON(node: [
                 "block": block.makeNode(), "links": links.makeNode()
             ])
         }

@@ -1,13 +1,15 @@
 #extend("master")
 #export("section") {
-    #loop(section.block, "block") {
-    <h1> #(block.title) </h1>
-    <h2> #(block.subtitle) </h2>
-    <h3> #(block.description) </h3>
+    #loop(section, "section") {
+    <h1> #(section.block.title) </h1>
+    <h2> #(section.block.subtitle) </h2>
+    <h3> #(section.block.description) </h3>
     <ul>
-        #loop(section.links.0, "link") {
-        <li> #(link.title) - #(link.url) </li>
-        }
+    #loop(section.links, "links") {
+    #loop(links, "link") {
+    <li> #(link.title) - #(link.url) </li>
+    }
+    }
     </ul>
     }
 }
