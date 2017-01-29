@@ -1,4 +1,7 @@
 #extend("master")
+#export("title") {
+    #(sectionName)
+}
 #export("section") {
     #loop(section, "section") {
     <h1> #(section.block.title) </h1>

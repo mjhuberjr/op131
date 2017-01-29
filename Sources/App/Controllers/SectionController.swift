@@ -12,6 +12,7 @@ final class SectionController {
         let sectionParameters = try paramatersFrom(section: section).makeNode()
         
         let parameters = try Node(node: [
+            "sectionName": sectionName,
             "section": sectionParameters
         ])
         
