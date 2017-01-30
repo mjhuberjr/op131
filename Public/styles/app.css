@@ -19,6 +19,10 @@ h4,
 h6 {
   color: #FD6800; }
 
+img {
+	margin-top: 10px;
+  margin-bottom: 10px; }
+
 .top-bar,
 .top-bar ul {
     background-color: #FD6800; }

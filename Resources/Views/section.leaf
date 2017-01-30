@@ -20,6 +20,7 @@
         #if(section.newLine) { <div class="row"> }
           <div class="small-12 medium-6 columns">
             <center>
+            <img src=#(section.block.imagePath) height="98" width="98" alt="logo">
             <h2> #(section.block.title) </h2>
             <h4> #(section.block.subtitle) </h4>
             <p> #(section.block.description) </p>
@@ -36,4 +37,5 @@
         #if(section.newLine) {} ##else() { </div> }
       }
     }
+  }
 }
