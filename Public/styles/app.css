@@ -1,3 +1,9 @@
+@font-face { font-family: geometria; src: url('Geometria.otf'); }
+
+*, html, h1, h2, h3, h4, h5, h6 {
+	font-family: "geometria", sans-serif;
+}
+
 hr {
   border-bottom: 1px solid #FD6800; }
 
@@ -10,4 +16,7 @@ h3 {
 .top-bar ul {
     background-color: #FD6800; }
   .top-bar a {
-    color: #FFF }
+    color: #FFF; }
+  .top-bar a:hover {
+    color: #da5900;
+  }
