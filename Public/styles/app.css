@@ -7,6 +7,7 @@
 p {
   font-size: 1.8rem;
   margin-left: 10px;
+	margin-right: 10px;
   margin-top: 6px; }
 
 hr {
@@ -28,3 +29,8 @@ h3 {
 
 #header-img {
   line-height: 40pt; }
+
+.header {
+	background-color: #FD6800; }
+	.header h3 {
+	color: #FFF; }

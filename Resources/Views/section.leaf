@@ -5,9 +5,14 @@
 #export("section") {
     #loop(section, "section") {
     #if(section.block.isHeader) {
-    <h1> #(section.block.title) </h1>
-    <h2> #(section.block.subtitle) </h2>
-    <h3> #(section.block.description) </h3>
+      <div class="header">
+      <div class="row">
+        <center>
+          <img src=#(section.block.imagePath) height="204" width="204" alt="header image">
+        <h3> #(section.block.description) </h3>
+        </center>
+      </div>
+      </div>
     }
     }
     #loop(section, "section") {
