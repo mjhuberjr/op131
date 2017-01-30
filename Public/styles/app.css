@@ -5,7 +5,6 @@
 }
 
 p {
-  font-size: 1.8rem;
   margin-left: 10px;
 	margin-right: 10px;
   margin-top: 6px; }
@@ -15,7 +14,9 @@ hr {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h6 {
   color: #FD6800; }
 
 .top-bar,
@@ -26,6 +27,8 @@ h3 {
   .top-bar a:hover {
     color: #da5900;
   }
+.top-bar p {
+	  font-size: 1.8rem; }
 
 #header-img {
   line-height: 40pt; }

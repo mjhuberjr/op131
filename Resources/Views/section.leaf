@@ -17,17 +17,23 @@
     }
     #loop(section, "section") {
     #if(section.block.isHeader) {} ##else() {
-        #if(section.newLine) { Test }
-        <h1> #(section.block.title) </h1>
-        <h2> #(section.block.subtitle) </h2>
-        <h3> #(section.block.description) </h3>
-        <ul>
-        #loop(section.links, "links") {
-        #loop(links, "link") {
-        <li> #(link.title) - #(link.url) </li>
-        }
-        }
-        </ul>
-        }
+        #if(section.newLine) { <div class="row"> }
+          <div class="small-12 medium-6 columns">
+            <center>
+            <h2> #(section.block.title) </h2>
+            <h4> #(section.block.subtitle) </h4>
+            <p> #(section.block.description) </p>
+
+            <ul class="menu">
+            #loop(section.links, "links") {
+              #loop(links, "link") {
+                <li> <p> #(link.title) - #(link.url) </p> </li>
+              }
+            }
+            </ul>
+          </center>
+          </div>
+        #if(section.newLine) {} ##else() { </div> }
+      }
     }
 }
