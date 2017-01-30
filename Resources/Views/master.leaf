@@ -8,12 +8,14 @@
     </head>
 <body>
     <div class="top-bar">
-        <div class="top-bar-left">
-            <h2> Left Side </h2>
+    <div class="row">
+        <div class="top-bar-left" id="header-img">
+            <img src="images/header@2x.png" alt="operation thirteenOne logo" width="376" height="40">
         </div>
         <div class="top-bar-right">
-            <h2> <a href="test"> Right Side </a> </h2>
+            <ul class="menu"> <li> <p> <a href="test"> apps </a> </p> </li> <li> <p> <a href="test"> books </a> </p> </li> <li> <p> <a href="test"> about </a> </p> </li> </ul>
         </div>
+    </div>
     </div>
 
     #import("section")

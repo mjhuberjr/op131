@@ -4,6 +4,11 @@
 	font-family: "geometria", sans-serif;
 }
 
+p {
+  font-size: 1.8rem;
+  margin-left: 10px;
+  margin-top: 6px; }
+
 hr {
   border-bottom: 1px solid #FD6800; }
 
@@ -20,3 +25,6 @@ h3 {
   .top-bar a:hover {
     color: #da5900;
   }
+
+#header-img {
+  line-height: 40pt; }
