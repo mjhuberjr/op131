@@ -7,3 +7,4 @@ Being a pretty simple website that will not be taking a lot of daily changes, I'
 ### Things to do
 - Need to build a Custom Tag to display the blocks two on a line, right now it's done in the Section Controller and adds a `newLine` parameter. Very hacky.
 - Do separate queries for release and in development. Display them using `#embed`. Each will have their separate views created.
+- Need to dynamically get sections to display and build url accordingly

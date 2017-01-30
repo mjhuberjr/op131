@@ -15,6 +15,9 @@
       </div>
     }
     }
+    <div class="row inDev"> <p> in development <p> </div>
+    <div class="row seperator"> <hr> </div>
+
     #loop(section, "section") {
     #if(section.block.isHeader) {} ##else() {
         #if(section.newLine) { <div class="row"> }
@@ -23,8 +26,11 @@
             <img src=#(section.block.imagePath) height="98" width="98" alt="logo">
             <h2> #(section.block.title) </h2>
             <h4> #(section.block.subtitle) </h4>
+            </center>
+
             <p> #(section.block.description) </p>
 
+            <center>
             <ul class="menu">
             #loop(section.links, "links") {
               #loop(links, "link") {

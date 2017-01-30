@@ -10,6 +10,8 @@ p {
   margin-top: 6px; }
 
 hr {
+	margin: 0;
+	margin-bottom: 20px;
   border-bottom: 1px solid #FD6800; }
 
 h1,
@@ -41,3 +43,10 @@ img {
 	background-color: #FD6800; }
 	.header h3 {
 	color: #FFF; }
+
+.inDev {
+	font-size: 1.4rem;
+	color: #FD6800;
+	padding: 10px;
+	padding-bottom: 0px;
+}
