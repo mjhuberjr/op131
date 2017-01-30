@@ -10,10 +10,10 @@
     <div class="top-bar">
     <div class="row">
         <div class="top-bar-left" id="header-img">
-            <img src="images/header@2x.png" alt="operation thirteenOne logo" width="376" height="40">
+            <center> <img src="images/header@2x.png" alt="operation thirteenOne logo" width="376" height="40"> </center>
         </div>
         <div class="top-bar-right">
-            <ul class="menu"> <li> <p> <a href="test"> apps </a> </p> </li> <li> <p> <a href="test"> books </a> </p> </li> <li> <p> <a href="test"> about </a> </p> </li> </ul>
+            <center> <ul class="menu"> <li> <p> <a href="test"> apps </a> </p> </li> <li> <p> <a href="test"> books </a> </p> </li> <li> <p> <a href="test"> about </a> </p> </li> </ul> </center>
         </div>
     </div>
     </div>
