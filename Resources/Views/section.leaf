@@ -4,15 +4,24 @@
 }
 #export("section") {
     #loop(section, "section") {
+    #if(section.block.isHeader) {
     <h1> #(section.block.title) </h1>
     <h2> #(section.block.subtitle) </h2>
     <h3> #(section.block.description) </h3>
-    <ul>
-    #loop(section.links, "links") {
-    #loop(links, "link") {
-    <li> #(link.title) - #(link.url) </li>
     }
     }
-    </ul>
+    #loop(section, "section") {
+    #if(section.block.isHeader) {} ##else() {
+        <h1> #(section.block.title) </h1>
+        <h2> #(section.block.subtitle) </h2>
+        <h3> #(section.block.description) </h3>
+        <ul>
+        #loop(section.links, "links") {
+        #loop(links, "link") {
+        <li> #(link.title) - #(link.url) </li>
+        }
+        }
+        </ul>
+        }
     }
 }
