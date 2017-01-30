@@ -21,10 +21,21 @@ final class SectionController {
     
     func paramatersFrom(section: Section) throws -> [JSON] {
         let blocks = try section.children(nil, Block.self).all()
+        
+        // These will get removed when the Custom Tag is created
+        var index = 0
+        var newLine = false
+        
         let blocksWithLinks = try blocks.flatMap { block -> JSON in
             let links = try block.children(nil, Link.self).all()
+            
+            // This is very hacky and will need to be moved into a Custom Tag
+            newLine = index % 2 == 0 ? true : false
+            index += 1
+            
             return try JSON(node: [
-                "block": block.makeNode(), "links": links.makeNode()
+                // newLine will also need to be removed
+                "newLine": newLine.makeNode(), "block": block.makeNode(), "links": links.makeNode()
             ])
         }
         

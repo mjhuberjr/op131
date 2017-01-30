@@ -17,6 +17,7 @@
     }
     #loop(section, "section") {
     #if(section.block.isHeader) {} ##else() {
+        #if(section.newLine) { Test }
         <h1> #(section.block.title) </h1>
         <h2> #(section.block.subtitle) </h2>
         <h3> #(section.block.description) </h3>
