@@ -3,9 +3,19 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles/foundation.css">
-<title> operation thirteenOne | #import("title") </title>
+        <link rel="stylesheet" href="/styles/app.css">
+        <title> operation thirteenOne | #import("title") </title>
     </head>
 <body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <h2> Left Side </h2>
+        </div>
+        <div class="top-bar-right">
+            <h2> <a href="test"> Right Side </a> </h2>
+        </div>
+    </div>
+
     #import("section")
 </body>
     #embed("footer")
